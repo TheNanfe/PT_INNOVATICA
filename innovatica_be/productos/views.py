@@ -66,7 +66,7 @@ def update_product(request):
             raise Exception('Empty QuerySet')
         product_to_update.update(**product_new_values)
 
-        return JsonResponse({'message': 'Se ha eliminado el producto ' + id + ' con exito!'})
+        return JsonResponse({'message': 'Se ha actualizado el producto ' + id + ' con exito!'})
     except Exception as e:
-        return JsonResponse({'message': 'No se ha podido eliminar el producto ' + id, 'error': str(e)},
+        return JsonResponse({'message': 'No se ha podido actualizar el producto ' + id, 'error': str(e)},
                             status=418)
