@@ -22,7 +22,7 @@ function EditarProducto({choosedProduct, onAddSuccess}) {
           const response = await fetch(`http://localhost:8080/productos/update_product/${choosedProduct.pk}`, {
             method: 'PUT',
             headers: {
-              'Content-Type': 'application/json',
+              'Content-Type': 'application/json', Authorization: 'Bearer ' + localStorage.getItem('access_token')
             },
             body: JSON.stringify(formData)
           });

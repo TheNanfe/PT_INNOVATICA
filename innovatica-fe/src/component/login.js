@@ -27,13 +27,13 @@ export const Login = () => {
           withCredentials: true
         }
       );
-
       // Initialize the access & refresh token in localstorage.
       localStorage.setItem('access_token', data.access);
       localStorage.setItem('refresh_token', data.refresh);
       axios.defaults.headers.common['Authorization'] = `Bearer ${data['access']}`;
       window.location.href = '/all'; // Redirect to homepage after successful login
     } catch (error) {
+      alert("Usuario no activo o credenciales invalidas");
       console.error('Error occurred during login:', error);
       // Handle error appropriately (display error message, etc.)
     }

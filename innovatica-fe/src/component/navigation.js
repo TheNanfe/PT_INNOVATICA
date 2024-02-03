@@ -13,7 +13,7 @@ export function Navigation() {
      return ( 
       <div>
         <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="/">Usuarios</Navbar.Brand>            
+          <Navbar.Brand href="/users">Usuarios</Navbar.Brand>            
           <Nav className="me-auto"> 
           {isAuth ? <Nav.Link href="/all">Productos</Nav.Link> : 
                     <Nav.Link href="/">Productos</Nav.Link>}
