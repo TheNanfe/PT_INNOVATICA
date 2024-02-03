@@ -45,7 +45,6 @@ function EditarProducto({choosedProduct, onAddSuccess}) {
     
       return (
         <div>
-            <button onClick={onAddSuccess}>Atras</button>
             <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="nombre">Nombre:</label>
@@ -65,6 +64,7 @@ function EditarProducto({choosedProduct, onAddSuccess}) {
             </div>
             <button type="submit">Editar Producto</button>
             </form>
+            <button style={{marginTop: '5px'}} onClick={onAddSuccess}>Atras</button>
         </div>
       );
 };

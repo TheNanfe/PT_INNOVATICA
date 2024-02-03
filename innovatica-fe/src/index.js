@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './productos/App';
+import App from './App';
+import './interceptors/axios';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

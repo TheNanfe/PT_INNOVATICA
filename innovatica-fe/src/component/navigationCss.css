@@ -1,0 +1,24 @@
+/* Navigation.css */
+.navbar {
+    height: 100px;
+    width: auto;
+    background-color: #343a40; /* Dark background color */
+  }
+
+  .navbar-brand {
+    color: #fff; /* White text color */
+  }
+  
+  .nav-link {
+    color: #fff; /* White text color */
+  }
+  
+  .nav-link:hover {
+    color: #17a2b8; /* Light blue color on hover */
+  }
+
+  .navbar > * {
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }

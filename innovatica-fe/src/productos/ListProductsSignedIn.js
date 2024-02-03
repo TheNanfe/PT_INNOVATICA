@@ -4,7 +4,7 @@ import DeleteButton from './DeleteButton';
 import EditarProducto from './EditarProducto';
 import AgregarProducto from './AgregarProducto';
 
-function App() {
+export const ListProductsSignedIn = () => {
   const [showForm, setShowForm] = useState(false);
   const [showFormEdit, setShowFormEdit] = useState(false); 
   const [productos, setProductos] = useState([]);
@@ -27,7 +27,9 @@ function App() {
 
     const fetchData = async () => {
         try {
-        const response = await fetch('http://localhost:8080/productos/');
+        const response = await fetch('http://localhost:8080/productos/all/', {
+          headers: {Authorization: 'Bearer ' + localStorage.getItem('access_token')}
+        });
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -69,6 +71,7 @@ function App() {
         {loading && <div>Loading...</div>}
         {error && <div>Error: {error}</div>}
         {!loading && !error && (
+            <div>
             <table>
             <thead>
                 <tr>
@@ -77,7 +80,6 @@ function App() {
                 <th>Categoría</th>
                 <th>Imagen</th>
                 <th>Acciones</th>
-                <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -97,6 +99,7 @@ function App() {
                 ))}
             </tbody>
             </table>
+            </div>
         )}
         </div>
         )}
@@ -104,5 +107,4 @@ function App() {
         )}
     </div>
   );
-            }
-export default App;
+};
