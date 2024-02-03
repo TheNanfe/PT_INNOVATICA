@@ -1,0 +1,24 @@
+
+.navbar {
+    height: 100px;
+    width: auto;
+    background-color: #343a40;
+  }
+
+  .navbar-brand {
+    color: #fff;
+  }
+  
+  .nav-link {
+    color: #fff; 
+  }
+  
+  .nav-link:hover {
+    color: #17a2b8;
+  }
+
+  .navbar > * {
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
