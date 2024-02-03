@@ -1,11 +1,8 @@
-from django.shortcuts import redirect
-from rest_framework.authentication import TokenAuthentication
+from django.db.models import Q
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 
 from django.core import serializers
 from django.http import JsonResponse
-from django.views.decorators.http import require_http_methods
-from django.views.decorators.csrf import csrf_exempt
 from rest_framework.permissions import IsAuthenticated
 
 from .models import Producto
@@ -26,13 +23,20 @@ def get_signed_products(request):
     return JsonResponse(json.loads(data), safe=False)
 
 
-
-@require_http_methods('GET')
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def get_product_by_filter(request):
-    fiter_data = json.dumps(request.GET)
-    product_query_set = Producto.objects.filter(**json.loads(fiter_data))
+    my_filter = json.loads(request.body)
+    product_query_set = Producto.objects.filter(Q(nombre=my_filter) | Q(categoria=my_filter) | Q(estado=my_filter))
     data = serializers.serialize('json', list(product_query_set))
-    return JsonResponse(json.loads(data), safe=False)
+    data = json.loads(data)
+    clean_images = data[1:]
+    # Limpia todas las imagenes
+    for image in clean_images:
+        image['fields']['imagen'] = ''
+
+    # retorna el objeto mutado
+    return JsonResponse(data, safe=False)
 
 
 @api_view(['POST'])
