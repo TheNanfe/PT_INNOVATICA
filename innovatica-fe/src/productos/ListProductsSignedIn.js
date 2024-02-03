@@ -26,6 +26,7 @@ export const ListProductsSignedIn = () => {
   }, []);
 
     const fetchData = async () => {
+      console.log('Current at:' + localStorage.getItem('access_token'));
         try {
         const response = await fetch('http://localhost:8080/productos/all/', {
           headers: {Authorization: 'Bearer ' + localStorage.getItem('access_token')}
