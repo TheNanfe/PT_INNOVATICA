@@ -61,7 +61,6 @@ export const ListUsers = () => {
                 console.log(data);
             } catch (error) {
                 console.error('Error occurred during login:', error);
-                // Handle error appropriately (display error message, etc.)
               }
         }
         updateUserStatus(status, pk).then( () => fetchData());

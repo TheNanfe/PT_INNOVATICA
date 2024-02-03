@@ -29,13 +29,11 @@ function AddUser({ onAddSuccess }) {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      // Clear the form data
       setFormData({
         username: '',
         password: '',
         email: ''
       });
-      // Call the onAddSuccess function passed from the parent component
       onAddSuccess();
     } catch (error) {
       console.error('Error adding product:', error);

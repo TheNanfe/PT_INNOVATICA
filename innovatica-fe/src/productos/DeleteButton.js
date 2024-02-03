@@ -10,7 +10,6 @@ function DeleteButton(props) {
             throw new Error('Network response was not ok');
         }
         props.onDeleteSuccess();
-        // Optionally, you can handle the response data here if needed
         } catch (error) {
         console.error('Error deleting product:', error);
         }

@@ -29,14 +29,12 @@ function AgregarProducto({ onAddSuccess }) {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      // Clear the form data
       setFormData({
         nombre: '',
         estado: '',
         categoria: '',
         imagen: ''
       });
-      // Call the onAddSuccess function passed from the parent component
       onAddSuccess();
     } catch (error) {
       console.error('Error adding product:', error);
