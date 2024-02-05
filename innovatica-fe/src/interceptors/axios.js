@@ -29,8 +29,6 @@ axios.interceptors.response.use(
       } catch (refreshError) {
         console.error('Error occurred during token refresh:', refreshError);
         refresh = false;
-        // Handle token refresh error appropriately
-        // e.g., redirect to login page, display error message, etc.
       }
     }
     refresh = false;

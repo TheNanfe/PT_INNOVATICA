@@ -1,13 +1,10 @@
-// Import the react JS packages 
 import axios from "axios";
 import { useState } from "react";
 
-// Define the Login function.
 export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  // Create the submit method.
   const submit = async e => {
     e.preventDefault();
     const user = {
@@ -16,7 +13,6 @@ export const Login = () => {
     };
 
     try {
-      // Create the POST request
       const { data } = await axios.post(
         'http://localhost:8080/authentification/token/',
         user,
@@ -27,7 +23,6 @@ export const Login = () => {
           withCredentials: true
         }
       );
-      // Initialize the access & refresh token in localstorage.
       localStorage.setItem('access_token', data.access);
       localStorage.setItem('refresh_token', data.refresh);
       localStorage.setItem('user_id', data.user_id);
@@ -38,7 +33,6 @@ export const Login = () => {
     } catch (error) {
       alert("Usuario no activo o credenciales invalidas");
       console.error('Error occurred during login:', error);
-      // Handle error appropriately (display error message, etc.)
     }
   };
 

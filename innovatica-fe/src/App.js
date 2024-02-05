@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Login } from "./component/login";
-//import { Home } from "./component/Home";
 import { Navigation } from './component/navigation';
 import { Logout } from './component/logout';
 import { ListProducts } from './productos/ListProducts';
