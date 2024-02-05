@@ -21,6 +21,15 @@ export function Navigation() {
           <Nav>
           {isAuth ? <Nav.Link href="/logout">Logout</Nav.Link> :  
                     <Nav.Link href="/login">Login</Nav.Link>}
+           {isAuth ? 
+            <span style={{float: 'right', marginRight: '10px', color: 'white'}}>
+              {localStorage.getItem('username')}{localStorage.getItem('is_superuser') === 'true' && <span>(root)</span>}
+            </span> 
+            : 
+            <span style={{float: 'right', marginRight: '10px', color: 'white'}}
+              >Anonymous User
+            </span>
+          }
           </Nav>
         </Navbar>
        </div>

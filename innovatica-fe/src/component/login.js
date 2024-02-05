@@ -30,6 +30,9 @@ export const Login = () => {
       // Initialize the access & refresh token in localstorage.
       localStorage.setItem('access_token', data.access);
       localStorage.setItem('refresh_token', data.refresh);
+      localStorage.setItem('user_id', data.user_id);
+      localStorage.setItem('username', data.username);
+      localStorage.setItem('is_superuser', data.is_superuser);
       axios.defaults.headers.common['Authorization'] = `Bearer ${data['access']}`;
       window.location.href = '/all'; // Redirect to homepage after successful login
     } catch (error) {

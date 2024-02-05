@@ -107,7 +107,7 @@ export const ListUsers = () => {
                     <td>{usuarios.fields.is_active ? ( <span>Si</span> ) : ( <span>No</span> )}</td>
                     <td>{usuarios.fields.is_superuser ? ( <span>Si</span> ) : ( <span>No</span> )}</td>
                     <td>{usuarios.fields.email}</td>
-                    {localStorage.getItem('access_token') && (
+                    {localStorage.getItem('is_superuser') === 'true' && localStorage.getItem('username') !== usuarios.fields.username && (
                         <td> 
                             {usuarios.fields.is_active ? ( 
                                 <button onClick={(event) => handleStatusButton('t', usuarios.pk)}>Desactivar</button> 
@@ -115,6 +115,11 @@ export const ListUsers = () => {
                                 <button onClick={(event) => handleStatusButton('f', usuarios.pk)}>Activar</button> 
                             )
                             }
+                        </td>
+                    )}
+                    {localStorage.getItem('username') === usuarios.fields.username && localStorage.getItem('is_superuser') === 'true' && (
+                        <td> 
+                           -
                         </td>
                     )}
                 </tr>
